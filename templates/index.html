@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Prediksi Penyakit Jantung</title>
+  <style>
+  form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: auto;
+  }
+
+  label {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+
+  input, button {
+    padding: 8px;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+</style>
+
+</head>
+<body>
+  <h2>Form Prediksi Penyakit Jantung</h2>
+  <form action="/predict" method="post">
+  <label>Usia</label>
+  <input type="number" step="any" name="age" placeholder="Contoh: 60" required>
+
+  <label>Anaemia (Kadar Hemoglobin Rendah)</label>
+  <input type="number" name="anaemia" placeholder="0 = Tidak, 1 = Ya" required>
+
+  <label>Kadar Creatinine Phosphokinase</label>
+  <input type="number" name="creatinine_phosphokinase" placeholder="Contoh: 582" required>
+
+  <label>Riwayat Diabetes</label>
+  <input type="number" name="diabetes" placeholder="0 = Tidak, 1 = Ya" required>
+
+  <label>Ejection Fraction (Persentase pompa jantung)</label>
+  <input type="number" name="ejection_fraction" placeholder="Contoh: 38" required>
+
+  <label>Tekanan Darah Tinggi</label>
+  <input type="number" name="high_blood_pressure" placeholder="0 = Tidak, 1 = Ya" required>
+
+  <label>Jumlah Platelet dalam darah</label>
+  <input type="number" step="any" name="platelets" placeholder="Contoh: 265000" required>
+
+  <label>Kadar Serum Creatinine</label>
+  <input type="number" step="any" name="serum_creatinine" placeholder="Contoh: 1.9" required>
+
+  <label>Kadar Serum Sodium</label>
+  <input type="number" name="serum_sodium" placeholder="Contoh: 130" required>
+
+  <label>Jenis Kelamin</label>
+  <input type="number" name="sex" placeholder="1 = Laki-laki, 0 = Perempuan" required>
+
+  <label>Perokok</label>
+  <input type="number" name="smoking" placeholder="0 = Tidak, 1 = Ya" required>
+
+  <label>Waktu Follow-up (dalam hari)</label>
+  <input type="number" name="time" placeholder="Contoh: 4" required>
+
+  <button type="submit">Prediksi</button>
+</form>
+
+
+  {% if result %}
+    <div class="result">Hasil: {{ result }}</div>
+  {% endif %}
+</body>
+</html>
